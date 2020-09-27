@@ -7,3 +7,9 @@
 [submodule "riscv-tests"]
 	path = riscv-tests
 	url = https://github.com/riscv/riscv-tests.git
+[submodule "coredesign"]
+	path = coredesign
+	url = https://github.com/yuhengy/coredesign.git
+[submodule "learn-riscv-note"]
+	path = learn-riscv-note
+	url = https://github.com/yuhengy/learn-riscv-note.git
