@@ -13,3 +13,6 @@
 [submodule "learn-riscv-note"]
 	path = learn-riscv-note
 	url = https://github.com/yuhengy/learn-riscv-note.git
+[submodule "nexus-am"]
+	path = nexus-am
+	url = https://github.com/OSCPU/nexus-am.git

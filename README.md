@@ -10,11 +10,13 @@ To init this repository for demonstration, use
 ```shell
 git clone https://github.com/yuhengy/coredesign-env.git
 cd coredesign-env
-git submodule update --init --recursive coredesign learn-riscv-note nemu riscv-tests
+git submodule update --init --recursive coredesign learn-riscv-note nemu riscv-tests nexus-am
 
 cd coredesign && git checkout master && cd ..
 cd learn-riscv-note && git checkout master && cd ..
 ```
+
+TODO: for nexus-am, you need manually modify `src/nutshell/common/uartlite` by comment all function body except `return 0;`
 
 To demo the latest test, run `bash run_from_nothing.sh coredesign/test-scripts-forcommits/{latest-test}`
 
@@ -43,11 +45,16 @@ This environment is created by
 git submodule add https://github.com/OSCPU/nemu.git
 cd nemu && git checkout 85edc31 && cd ..
 git commit -m "NEMU: diff test trace"
+
 git submodule add https://github.com/riscv/riscv-gnu-toolchain.git
 cd riscv-gnu-toolchain && git checkout rvv-0.8 && cd ..
 git submodule add https://github.com/riscv/riscv-tests.git
 cd riscv-tests && git checkout a5d8386 && cd ..
 git commit -m "TESTBENCH: use official riscv-tests"
+
+git submodule add https://github.com/OSCPU/nexus-am.git
+cd nexus-am && git checkout b2e6303 && cd ..
+git commit -m "TESTBENCH: use am tests"
 ```
 
 This also include my repository:
