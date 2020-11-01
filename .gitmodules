@@ -16,3 +16,6 @@
 [submodule "nexus-am"]
 	path = nexus-am
 	url = https://github.com/OSCPU/nexus-am.git
+[submodule "RT-Thread"]
+	path = RT-Thread
+	url = https://github.com/OSCPU/RT-Thread.git

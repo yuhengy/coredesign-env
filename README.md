@@ -10,7 +10,7 @@ To init this repository for demonstration, use
 ```shell
 git clone https://github.com/yuhengy/coredesign-env.git
 cd coredesign-env
-git submodule update --init --recursive coredesign learn-riscv-note nemu riscv-tests nexus-am
+git submodule update --init --recursive coredesign learn-riscv-note nemu riscv-tests nexus-am RT-Thread
 
 cd coredesign && git checkout master && cd ..
 cd learn-riscv-note && git checkout master && cd ..
@@ -55,6 +55,13 @@ git commit -m "TESTBENCH: use official riscv-tests"
 git submodule add https://github.com/OSCPU/nexus-am.git
 cd nexus-am && git checkout b2e6303 && cd ..
 git commit -m "TESTBENCH: use am tests"
+
+git submodule add https://github.com/OSCPU/RT-Thread.git
+cd RT-Thread && git checkout a0ffe63 && cd ..
+# comment Line29 in `RT-Thread/bsp/riscv64/Makefile`
+# change Line13 in `RT-Thread/bsp/riscv64/rtconfig.py` into `EXEC_PATH   = r'/usr/bin'`
+# change `-march=rv64imac` Line43 in `RT-Thread/bsp/riscv64/rtconfig.py` into `-march=rv64im`
+git commit -m "RT-THREAD: clone from OSCPU"
 ```
 
 This also include my repository:
