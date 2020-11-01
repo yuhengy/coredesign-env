@@ -19,3 +19,6 @@
 [submodule "RT-Thread"]
 	path = RT-Thread
 	url = https://github.com/OSCPU/RT-Thread.git
+[submodule "verilator"]
+	path = verilator
+	url = https://github.com/verilator/verilator.git

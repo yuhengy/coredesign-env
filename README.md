@@ -11,6 +11,10 @@ To init this repository for demonstration, use
 git clone https://github.com/yuhengy/coredesign-env.git
 cd coredesign-env
 git submodule update --init --recursive coredesign learn-riscv-note nemu riscv-tests nexus-am RT-Thread
+# Add these into `nemu/src/monitor/difftest/ref.c`: 
+  add_mmio_map("difftest.serial", 0x40600000, new_space(32), 32, NULL);
+  add_mmio_map("difftest.mtime", 0x4070BFF8, new_space(8), 8, NULL);
+  add_mmio_map("difftest.mtimecmp", 0x40704000, new_space(8), 8, NULL);
 
 cd coredesign && git checkout master && cd ..
 cd learn-riscv-note && git checkout master && cd ..
@@ -27,6 +31,7 @@ To init this repository for development, in addition to demonstration, use
 git submodule update --init --depth=1 riscv-gnu-toolchain
 cd riscv-gnu-toolchain && git rm -f qemu && cd ..  # repo bug, the qemu commit was deleted
 git submodule update --init --recursive --depth=1 riscv-gnu-toolchain
+git submodule update --init --recursive verilator
 ```
 
 Common commands to use docker-compose:
@@ -62,6 +67,10 @@ cd RT-Thread && git checkout a0ffe63 && cd ..
 # change Line13 in `RT-Thread/bsp/riscv64/rtconfig.py` into `EXEC_PATH   = r'/usr/bin'`
 # change `-march=rv64imac` Line43 in `RT-Thread/bsp/riscv64/rtconfig.py` into `-march=rv64im`
 git commit -m "RT-THREAD: clone from OSCPU"
+
+git submodule add https://github.com/verilator/verilator.git
+cd verilator && git checkout 77553d2 && cd ..
+git commit -m "VERILATOR: new version other than apt, no `Floating point exception` bug"
 ```
 
 This also include my repository:
